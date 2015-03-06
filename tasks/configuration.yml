@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-- name: Configure neutron
+- name: Configure Neutron
   ini_file: dest=/etc/neutron/neutron.conf
             section="{{ item.section }}"
             option="{{ item.option }}"
@@ -39,7 +39,7 @@
       option:   rabbit_password
       value:    "{{ rabbit_pass }}"
   notify:
-    - Restart neutron dhcp agent
+    - Reload Neutron DHCP agent
 
 - name: Configure DHCP agent
   ini_file: dest=/etc/neutron/dhcp_agent.ini
@@ -60,5 +60,5 @@
       option:   dnsmasq_config_file
       value:    /etc/neutron/dnsmasq-neutron.conf
   notify:
-    - Restart neutron dhcp agent
+    - Reload Neutron DHCP agent
 
