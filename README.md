@@ -1,7 +1,12 @@
-Neutron dhcp agent
+Neutron DHCP agent OpenStack Ansible Role
 =========
 
-OpenStack Neutron dhcp agent installation
+**Status**
+* [![Build Status](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent.svg?branch=master)](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent) on master branch
+* [![Build Status](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent.svg?branch=development)](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent) on development branch
+* [![Ansible Galaxy](http://img.shields.io/badge/dguerri-openstack--neutron_dhcp_agent-blue.svg)](https://galaxy.ansible.com/list#/roles/1834) on Ansible Galaxy
+
+OpenStack Neutron DHCP agent installation
 
 _Tested on Ubuntu Precise (12.04) and Trusty (14.04)_
 
@@ -12,15 +17,6 @@ None
 
 Role Variables
 --------------
-
-### Neutron (set by this role)
-
-| Name | Default value | Description | Note |
-|---   |---            |---          |---   |
-|      |               |             |      |
-
-
-### RabbitMQ (must exist)
 
 | Name | Default value | Description | Note |
 |---  |---  |---  |--- |

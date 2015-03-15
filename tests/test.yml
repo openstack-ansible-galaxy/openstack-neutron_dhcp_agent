@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  remote_user: root
+  roles:
+
+    - role: openstack-neutron_dhcp_agent
+      rabbit_username: "guest"
+      rabbit_pass: "guest"
+      tags:
+        - neutron-dhcp-agent

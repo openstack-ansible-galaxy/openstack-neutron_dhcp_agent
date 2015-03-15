@@ -17,9 +17,12 @@
 # limitations under the License.
 #
 
-- name: Restart neutron dhcp agent
+- name: Reload Neutron DHCP agent
+  service: name=neutron-dhcp-agent state=reloaded
+
+- name: Restart Neutron DHCP agent
   service: name=neutron-dhcp-agent state=restarted
 
-- name: Kill all dnsmasq
+- name: Kill all DNSmasq
   command: pkill dnsmasq
   ignore_errors: yes
