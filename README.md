@@ -2,8 +2,8 @@ Neutron DHCP agent OpenStack Ansible Role
 =========
 
 **Status**
-* [![Build Status](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent.svg?branch=master)](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent) on master branch
-* [![Build Status](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent.svg?branch=development)](https://travis-ci.org/dguerri/openstack-neutron_dhcp_agent) on development branch
+* [![Build Status](https://travis-ci.org/openstack-ansible-galaxy/openstack-neutron_dhcp_agent.svg?branch=master)](https://travis-ci.org/openstack-ansible-galaxy/openstack-neutron_dhcp_agent) on master branch
+* [![Build Status](https://travis-ci.org/openstack-ansible-galaxy/openstack-neutron_dhcp_agent.svg?branch=development)](https://travis-ci.org/openstack-ansible-galaxy/openstack-neutron_dhcp_agent) on development branch
 * [![Ansible Galaxy](http://img.shields.io/badge/dguerri-openstack--neutron_dhcp_agent-blue.svg)](https://galaxy.ansible.com/list#/roles/1834) on Ansible Galaxy
 
 OpenStack Neutron DHCP agent installation
