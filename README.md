@@ -10,6 +10,8 @@ OpenStack Neutron DHCP agent installation
 
 _Tested on Ubuntu Precise (12.04) and Trusty (14.04)_
 
+For RHEL/CentOS, RHOSP or RDO repositories are needed.
+
 Requirements
 ------------
 
@@ -44,6 +46,10 @@ Example Playbook
 A complete Ansible playbook demo, which uses this role, is available on Github (openstack-ansible-galaxy/vagrant-ansible-openstack) <https://github.com/openstack-ansible-galaxy/vagrant-ansible-openstack>
 
 ---
+
+Credits
+-------
+RedHat support implemented by Abel Boldú <abel.boldu@gmx.com>
 
 
 License

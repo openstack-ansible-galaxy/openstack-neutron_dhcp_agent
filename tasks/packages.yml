@@ -17,7 +17,8 @@
 # limitations under the License.
 #
 
-- name: Install Neutron DHCP agent plugin
-  apt: name="{{ item }}" state=present
-  with_items:
-    - neutron-dhcp-agent
+- include: packages_redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: packages_debian.yml
+  when: ansible_os_family == 'Debian'

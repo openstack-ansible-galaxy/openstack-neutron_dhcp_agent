@@ -25,6 +25,6 @@
 - meta: flush_handlers
 
 - name: Make sure Neutron DHCP agent is started
-  service: name=neutron-dhcp-agent state=started
+  service: name={{ neutron_dhcp_agent_service }} state=started
 
 - include: maintenance.yml
