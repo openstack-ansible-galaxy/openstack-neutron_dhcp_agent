@@ -17,12 +17,7 @@
 # limitations under the License.
 #
 
-- name: Reload Neutron DHCP agent
-  service: name={{ neutron_dhcp_agent_service }} state=reloaded
-
-- name: Restart Neutron DHCP agent
-  service: name={{ neutron_dhcp_agent_service }} state=restarted
-
-- name: Kill all DNSmasq
-  command: pkill dnsmasq
-  ignore_errors: yes
+- name: Install Neutron (with DHCP agent plugin)
+  yum: name="{{ item }}" state=present
+  with_items:
+    - openstack-neutron
