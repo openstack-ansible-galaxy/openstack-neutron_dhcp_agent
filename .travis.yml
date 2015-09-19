@@ -1,47 +1,21 @@
----
 language: python
-python: "2.7"
-
+python: '2.7'
 services:
-  - rabbitmq
-
-
+- rabbitmq
 before_install:
-  # Make sure everything's up to date.
-  - sudo apt-get install python-software-properties
-  - sudo add-apt-repository -y cloud-archive:icehouse
-  - sudo apt-get update -qq
-
-
+- sudo apt-get install python-software-properties
+- sudo add-apt-repository -y cloud-archive:icehouse
+- sudo apt-get update -qq
 install:
-  # Install Ansible.
-  - sudo pip install ansible
-
-  # Add ansible.cfg to pick up roles path.
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-
-
+- sudo pip install ansible
+- '{ echo ''[defaults]''; echo ''roles_path = ../''; } >> ansible.cfg'
 script:
-  # Check the role/playbook's syntax.
-  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-
-  # Run the role/playbook with ansible-playbook.
-  - >
-    ansible-playbook -i tests/inventory tests/test.yml --connection=local
-    --sudo
-
-  # Test role idempotency
-  - >
-    ansible-playbook -i tests/inventory tests/test.yml -t neutron-dhcp-agent
-    --connection=local --sudo | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-
-  # Test serice status
-  - service neutron-dhcp-agent status
-
-
-#  - sudo cat /var/log/keystone/keystone-all.log
-#  - sudo cat /var/log/glance/api.log
-#  - sudo cat /var/log/nova/nova-api.log
-#  - sudo cat /var/log/neutron/server.log
+- ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+- |
+  ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
+- |
+  ansible-playbook -i tests/inventory tests/test.yml -t neutron-dhcp-agent --connection=local --sudo | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
+- service neutron-dhcp-agent status
+notifications:
+  slack:
+    secure: aeA4rBVFyLis8WQywrkBe9Z/k0dQ4aMrrMvlksDriy/SZl6bdvivrdvxVNIS2u/59VZwpR0OD8F5rwy3/UnvSL4n9lM0ukp6zJoJvuOaoh7ivjqX+PAELENSmEQMaxZh4v6Cm48EmgWngfgZP3gQ4agwDWlewUM8o0vyQG7rCXA/xVE34OyzI8Vcz9639tpZk/s43RCiDRQ9lEfu+yjP/16FcXbTOGi2cFbya475NmOB6NGy4eIYMVXsQxNsVbkKtpWFQcb8w4QUOwhKUpdRH7pBRMeaFdZExRJ9pnEta0tHvP6972azLCcwnu9YcUp4wLlpM80FqvaFPNV6fxGiyGPWBhiOIPQo52ne5SUmjS6k9Gb8x0ipDBxl6uJL4NeibwZ6xHBuQZaHVZ4sRz4mtXY2NijKofOPKBrub9znOXt8TNsemRwNEIFSbLxAc9O4TNcccVSJSnHPREvU48ZBgL9gc6GcT+Z+XRe93Mj7MkRgoFzINI1KcIqXz92cBX/GOBww0cmaK94hA/WfgfGVf+WQ5H2ResjcEuDFrBS3RBReCGbDx6HG2fjn0IL+nP2TXqxUW4Lc3FfW5OFlfkUO4lLdjgxgwcY0O1dgLs3Q1PX/3KzrP6svRuwVaek2teDUmBwI9juYDBOC9Nu/0SckTl3m5uaKtSgUlQUGNwFISYI=
